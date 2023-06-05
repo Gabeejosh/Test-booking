@@ -1,9 +1,10 @@
+<link rel="stylesheet" href="style.css">
 <?php
 $con=mysqli_connect("localhost","root","password","movie");
 $response=array();
 try{
 if($con){
-    $sql="SELECT * FROM cons";
+    $sql="SELECT * FROM cons order by userid desc limit 1";
     $result=mysqli_query($con,$sql);
     if($result){
         header("Content-Type:application/JSON");
@@ -28,5 +29,4 @@ catch(exception $e)
 {
   echo $e->getmessage();
 }
-
 ?>
